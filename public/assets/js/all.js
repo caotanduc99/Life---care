@@ -14672,7 +14672,7 @@ function retina(a) {
     }
   });
 }
-Object.defineProperty(exports, "__esModule", { value: !0 });
+//Object.defineProperty(exports, "__esModule", { value: !0 });
 var hasWindow = "undefined" != typeof window,
   environment = hasWindow ? window.devicePixelRatio || 1 : 1,
   srcReplace = /(\.[A-z]{3,4}\/?(\?.*)?)$/,

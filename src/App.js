@@ -1,17 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Home from './component/home';
 import Foolter from './component/foolter';
 import Header from './component/header';
+import {BrowserRouter} from 'react-router-dom'
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+      <div>
       <Header/>
       <Home/>
       <Foolter/>
-    </div>
+    </div> 
+    </BrowserRouter>
+    
   );
 }
 

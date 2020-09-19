@@ -23,12 +23,14 @@
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
     "react-responsive-modal": "^5.1.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "reactjs-popup": "^2.0.3",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
