@@ -3,7 +3,7 @@ import axios from 'axios'
 const api_url = "http://localhost:3000/khachhang/them";
 
 
-class callApi{
+class apiKH{
 
 
     getuser(){
@@ -13,4 +13,4 @@ class callApi{
       return axios.post(api_url,users);
     }
 }
-export default new callApi()
+export default new apiKH()

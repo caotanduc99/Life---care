@@ -1,4 +1,5 @@
-import React, { StyleHTMLAttributes, Component, StyComponent } from "react";
+import React, { StyleHTMLAttributes, Component, StyComponent} from "react";
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   render() {
@@ -64,7 +65,7 @@ class Header extends React.Component {
                 </div>
 
                 <div id="navbar" class="navbar-collapse collapse">
-                  <ul class="nav navbar-nav d-inline">
+                  <ul class="nav navbar-nav d-inline col-12">
                     <li>
                       <a class="active" href="home">
                         Trang chủ
@@ -75,6 +76,13 @@ class Header extends React.Component {
                       <a className="nav-item dropdown" data-scroll href="#service">
                         Dịch vụ
                       </a>
+                    </li>
+
+
+                    <li class="nav-item ml-5 float-right">
+                      <Link className="nav-item"  to="/login">
+                        Đăng nhập
+                      </Link>
                     </li>
                   </ul>
                 </div>

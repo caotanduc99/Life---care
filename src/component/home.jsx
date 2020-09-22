@@ -1,10 +1,8 @@
 import React, { StyleHTMLAttributes, Component, StyComponent } from 'react';
 /* import {Link} from 'react-router-dom' */
 import "../index.css";
-import {Button, Modal} from 'react-bootstrap'
 import "./Modal.css"
 import callApi from '../API/callApi';
-import apikh from '../API/apiKH'
 import swal from 'sweetalert';
 
 
@@ -33,21 +31,21 @@ class Home extends React.Component {
       Date: '',
       Time: '',
       Totalday:'',
-      Address: '',
+      Adress: '',
       Note: '',
 
     }
 
-    this.changeNameHandler = this.changeNameHandler.bind(this);
-    this.changeMailHandler = this.changeMailHandler.bind(this);
-    this.changePhoneHandler = this.changePhoneHandler.bind(this);
-    this.changeServiceHandler = this.changeServiceHandler.bind(this);
-    this.changeLocationHandler = this.changeLocationHandler.bind(this);
-    this.changeDateHandler = this.changeDateHandler.bind(this);
-    this.changeTotaldayHandler = this.changeTotaldayHandler.bind(this);
-    this.changeTimeHandler = this.changeTimeHandler.bind(this);
-    this.changeAdressHandler = this.changeAdressHandler.bind(this);
-    this.changeNoteHandler = this.changeNoteHandler.bind(this);
+    this.changetenKhachHangHandler = this.changetenKhachHangHandler.bind(this);
+    this.changeemailHandler = this.changeemailHandler.bind(this);
+    this.changedienThoaiHandler = this.changedienThoaiHandler.bind(this);
+    this.changedichVuHandler = this.changedichVuHandler.bind(this);
+    this.changekhuVucHandler = this.changekhuVucHandler.bind(this);
+    this.changengayBatDauHandler = this.changengayBatDauHandler.bind(this);
+    this.changesoNgayHandler = this.changesoNgayHandler.bind(this);
+    this.changegioBatDauHandler = this.changegioBatDauHandler.bind(this);
+    this.changediaChiHandler = this.changediaChiHandler.bind(this);
+    this.changeghiChuHandler = this.changeghiChuHandler.bind(this);
     this.booksv = this.booksv.bind(this);
     
   }
@@ -55,63 +53,69 @@ class Home extends React.Component {
 
   booksv = (e) =>{
     e.preventDefault();
-    let users = {
-    Name :this.state.Name,
-    Mail: this.state.Mail,
-    Phone:this.state.Phone,
-    Address:this.state.Adress
-              };
+    // let users = {
+    // tenKhachHang :this.state.tenKhachHang,
+    // email: this.state.email,
+    // dienThoai:this.state.dienThoai,
+    // diaChi:this.state.diaChi
+    //           };
     let datlich = {
-    Service:this.state.Service,
-    Location: this.state.Location,
-    Date:this.state.Date,
-    Time:this.state.Time,
-    Totalday:this.state.Totalday,
-    Note:this.state.Note
+    tenKhachHang :this.state.tenKhachHang,
+    email: this.state.email,
+    dienThoai:this.state.dienThoai,
+    diaChi:this.state.diaChi,
+    //dichVu:this.state.dichVu,
+    //khuVuc: this.state.khuVuc,
+    ngayBatDau:this.state.ngayBatDau,
+    gioBatDau:this.state.gioBatDau,
+    soNgay:this.state.soNgay,
+    ghiChu:this.state.ghiChu
               };
-    console.log('user => ' + JSON.stringify(users));
+    // console.log('user => ' + JSON.stringify(users));
     console.log('datlich => ' + JSON.stringify(datlich));
     swal("Đặt lịch thành công!", "Mail xác nhận đã gửi đến bạn!", "success");
 
     callApi.adduser(datlich).then(res =>{
       this.setState({datlich: res.data.data});
+    }).catch(err =>{
+      throw err
     });
-    apikh.adduser(users).then(res =>{
-      this.setState({user:res.data.data})
-    });
+    // apikh.adduser(users).then(res =>{
+    //   this.setState({user:res.data.data})
+    // });
     }
   
 
 
-  changeNameHandler = (event) =>{
-    this.setState({Name: event.target.value})
+  changetenKhachHangHandler = (event) =>{
+    this.setState({tenKhachHang: event.target.value})
   }
-  changeMailHandler = (event) =>{
-    this.setState({Mail: event.target.value})
+  changeemailHandler = (event) =>{
+    this.setState({email: event.target.value})
   }
-  changePhoneHandler = (event) =>{
-    this.setState({Phone: event.target.value})
+  changedienThoaiHandler = (event) =>{
+    this.setState({dienThoai: event.target.value})
   }
-  changeServiceHandler = (event) =>{
-    this.setState({Service: event.target.value})
+  changedichVuHandler = (event) =>{
+    this.setState({dichVu: event.target.value})
   }
-  changeLocationHandler = (event) =>{
-    this.setState({Location: event.target.value})
+  changekhuVucHandler = (event) =>{
+    this.setState({khuVuc: event.target.value})
   }
-  changeDateHandler = (event) =>{
-    this.setState({Date: event.target.value})
+  changengayBatDauHandler = (event) =>{
+    this.setState({ngayBatDau: event.target.value})
   }
-  changeTimeHandler = (event) =>{
-    this.setState({Time: event.target.value})
+  changegioBatDauHandler = (event) =>{
+    this.setState({gioBatDau: event.target.value})
   }
-  changeTotaldayHandler = (event) =>{
-    this.setState({Totalday: event.target.value})
+  changesoNgayHandler = (event) =>{
+    this.setState({soNgay: event.target.value})
   }
-  changeAdressHandler = (event) =>{
-    this.setState({Adress: event.target.value})
+  changediaChiHandler = (event) =>{
+    this.setState({diaChi: event.target.value})
   }
-  changeNoteHandler = (event) =>{
-    this.setState({Note: event.target.value})
+  changeghiChuHandler = (event) =>{
+    this.setState({ghiChu: event.target.value})
   }
 
 
@@ -121,35 +125,13 @@ class Home extends React.Component {
     });
   } */
 
-/*   booksv(){
-    this.props.history.push('/book');
-  } */
-
-
-/* onChange = (e) =>{
-  var target =e.target;
-  var name = target.name;
-  var value = target.type ==='combobox' ? target.selected:target.value;
-  this.setState({
-    [name]: value
-  });
-} */
-
-
-  /* changeInputValue(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  } */
-
-
   validationForm() {
     let returnData = {
       error: false,
       msg: ''
     }
 
-    const { email, phone } = this.state
+    const { email, dienThoai } = this.state
     //Kiểm tra email
     const re = / ^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
     if (!re.test(email)) {
@@ -159,7 +141,7 @@ class Home extends React.Component {
       }
     }
 
-    if (phone.length < 10 || phone.length > 10) {
+    if (dienThoai.length < 10 || dienThoai.length > 10) {
       returnData = {
         error: true,
         msg: 'Chưa đúng định dạng số điện thoại'
@@ -176,7 +158,7 @@ class Home extends React.Component {
       <div>
         <div
           id="home"
-          className="parallax first-section wow fadeIn"
+          className=" first-section"
           data-stellar-background-ratio="0.4"
           style={{ backgroundImage: `url("assets/images/slider-bg.png")` }}>
           <div class="container">
@@ -208,7 +190,7 @@ class Home extends React.Component {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <div class="row">
-                <div class="service-time middle" style={mystyles}>
+                <div class="service-time" style={mystyles}>
                   <span class="info-icon">
                     <i class="far fa-clock" aria-hidden="true"></i>
                   </span>
@@ -234,7 +216,7 @@ class Home extends React.Component {
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <div class="row">
-                <div class="service-time three" style={mystyles1}>
+                <div class="service-time" style={mystyles1}>
                   <span class="info-icon">
                     <i class="far fa-heart" aria-hidden="true"></i>
                   </span>
@@ -248,7 +230,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <div id="service" class="services wow fadeIn">
+        <div id="service" class="services">
           <div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
@@ -340,9 +322,9 @@ class Home extends React.Component {
                                 type="text"
                                 id="name"
                                 placeholder="Họ tên"
-                                name="Name"
-                                value={this.state.Name}
-                                onChange={this.changeNameHandler}
+                                name="tenKhachHang"
+                                value={this.state.tenKhachHang}
+                                onChange={this.changetenKhachHangHandler}
                               />
                             </div>
                           </div>
@@ -353,12 +335,11 @@ class Home extends React.Component {
                               <input
                                 type="text"
                                 className="email"
-                                name="email"
                                 placeholder="Email"
                                 id="email"
-                                name="Mail"
-                                value={this.state.Mail}
-                                onChange={this.changeMailHandler}
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.changeemailHandler}
                               />
                             </div>
                           </div>
@@ -369,12 +350,11 @@ class Home extends React.Component {
                               <input
                                 className="phone"
                                 type="text"
-                                name="phone"
                                 placeholder="Số điện thoại"
                                 id="phone"
-                                name="Phone"
-                                value={this.state.Phone}
-                                onChange={this.changePhoneHandler}
+                                name="dienThoai"
+                                value={this.state.dienThoai}
+                                onChange={this.changedienThoaiHandler}
                               />
                             </div>
                           </div>
@@ -387,9 +367,9 @@ class Home extends React.Component {
                                 placeholder="Dịch vụ"
                                 type="text"
                                 id="dichvu"
-                                name="Service"
-                                value={this.state.Service}
-                                onChange={this.changeServiceHandler}
+                                name="dichVu"
+                                value={this.state.dichVu}
+                                onChange={this.changedichVuHandler}
                               >
                                 <option value="" disabled selected>
                                   Chọn dịch vụ
@@ -412,9 +392,9 @@ class Home extends React.Component {
                                 placeholder="Tỉnh/Thành phố"
                                 type="text"
                                 id="location"
-                                name="Location"
-                                value={this.state.Location}
-                                onChange={this.changeLocationHandler}
+                                name="khuVuc"
+                                value={this.state.khuVuc}
+                                onChange={this.changekhuVucHandler}
                               >
                                 <option value="" disabled selected>
                                   Chọn tỉnh\thành phố
@@ -448,9 +428,9 @@ class Home extends React.Component {
                                 placeholder="Ngày bắt đầu"
                                 defaultValue="2020-01-01"
                                 id="day"
-                                name="Date"
-                                value={this.state.Date}
-                                onChange={this.changeDateHandler}
+                                name="ngayBatDau"
+                                value={this.state.ngayBatDau}
+                                onChange={this.changengayBatDauHandler}
                               />
                             </div>
                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
@@ -462,9 +442,9 @@ class Home extends React.Component {
                                 onblur="(this.type='text')"
                                 defaultValue="07:30"
                                 id="time"
-                                name="Time"
-                                value={this.state.Time}
-                                onChange={this.changeTimeHandler}
+                                name="gioBatDau"
+                                value={this.state.gioBatDau}
+                                onChange={this.changegioBatDauHandler}
                               />
                             </div>
                           </div>
@@ -478,11 +458,12 @@ class Home extends React.Component {
                               
                                 className="custom-select fa-scroll "
                                 placeholder="Số ngày"
+                                
                                 type="text"
                                 id="totalday"
-                                name="Totalday"
-                                value={this.state.Totalday}
-                                onChange={this.changeTotaldayHandler}
+                                name="soNgay"
+                                value={this.state.soNgay}
+                                onChange={this.changesoNgayHandler}
                               >
                                 <option value="" disabled selected>
                                   Chọn số ngày
@@ -507,23 +488,6 @@ class Home extends React.Component {
                             </div>
                           </div>
                         </div>
-
-
-                        {/* <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                          <div class="row">
-                            <div class="form-group">
-                              <textarea
-                                rows="1"
-                                id="totalday"
-                                class="form-control"
-                                placeholder="Số ngày cần đặt"
-                                name="Totalday"
-                                value={this.state.Totalday}
-                                onChange={this.changeTotaldayHandler}
-                              ></textarea>
-                            </div>
-                          </div>
-                        </div> */}
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <div class="row">
                             <div class="form-group">
@@ -532,9 +496,9 @@ class Home extends React.Component {
                                 id="address"
                                 class="form-control"
                                 placeholder="Địa chỉ"
-                                name="Adress"
-                                value={this.state.Adress}
-                                onChange={this.changeAdressHandler}
+                                name="diaChi"
+                                value={this.state.diaChi}
+                                onChange={this.changediaChiHandler}
                               ></textarea>
                             </div>
                           </div>
@@ -547,9 +511,9 @@ class Home extends React.Component {
                                 id="note"
                                 class="form-control"
                                 placeholder="Ghi chú"
-                                name="Note"
-                                value={this.state.Note}
-                                onChange={this.changeNoteHandler}
+                                name="ghiChu"
+                                value={this.state.ghiChu}
+                                onChange={this.changeghiChuHandler}
                               ></textarea>
                             </div>
                           </div>
@@ -559,7 +523,8 @@ class Home extends React.Component {
                             <div class="form-group">
                               <textarea
                                 rows="1"
-                                id="note"
+                                id="price"
+                                name="giaTien"
                                 class="form-control"
                                 placeholder="Giá Tiền"
                                 readOnly
@@ -573,21 +538,6 @@ class Home extends React.Component {
                               <button className="btn btn-primary" onClick={this.booksv}>
                                 Đặt Lịch
                               </button>
-
-
-
-                              <Modal show={this.state.showModal}
-                                backdrop="static"
-                                animation={false}
-                                onHide={this.closeModal}>
-                              <Modal.Body>Thanh cong</Modal.Body>
-                              <Modal.Footer>
-                                <Button variant="success" onClick={this.closeModal}>
-                                  Dong
-                                </Button>
-                            </Modal.Footer>
-                              </Modal>
-
                             </div>
                           </div>
                         </div>

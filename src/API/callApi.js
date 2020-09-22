@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const api_url = "http://localhost:3000/datlich/them";
+const api_url = "http://localhost:8089/datlich/them";
+
 
 
 class callApi{
